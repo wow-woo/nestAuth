@@ -6,21 +6,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModule = void 0;
-const user_entity_1 = require("./entities/user.entity");
-const typeorm_1 = require("@nestjs/typeorm");
-const user_service_1 = require("./user.service");
+exports.AuthModule = void 0;
+const user_service_1 = require("./../user/user.service");
 const common_1 = require("@nestjs/common");
-const user_resolver_1 = require("./user.resolver");
-let UserModule = class UserModule {
+let AuthModule = class AuthModule {
 };
-UserModule = __decorate([
+AuthModule = __decorate([
     common_1.Module({
-        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User])],
-        controllers: [],
-        providers: [user_resolver_1.UserResolver, user_service_1.UserService],
-        exports: [user_service_1.UserService]
+        imports: [user_service_1.UserService],
+        providers: [user_service_1.UserService],
     })
-], UserModule);
-exports.UserModule = UserModule;
-//# sourceMappingURL=user.module.js.map
+], AuthModule);
+exports.AuthModule = AuthModule;
+//# sourceMappingURL=auth.module.js.map
